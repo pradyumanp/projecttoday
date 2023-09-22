@@ -1,0 +1,13 @@
+package javaprograms;
+
+public class Explicit {
+
+	public static void main(String[] args) {
+		double a= 11.34;
+		int b = (int)a;
+		System.out.println(b);
+		// TODO Auto-generated method stub
+
+	}
+
+}

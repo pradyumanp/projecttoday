@@ -1,0 +1,26 @@
+package exception;
+
+public class Exceptionsdemos {
+
+	public static void main(String[] args) {
+		int i=9;
+		int j= 0;
+		try {
+			System.out.println("result" + i/j);
+		}
+		catch(ArithemeticException e) {
+			System.out.println(e.getMessage());
+			
+		}
+	//	System.out.println("result" + i/j);
+		System.out.println("result" + i+j);
+		System.out.println("result" + i*j);
+		System.out.println("result" + (i-j));
+		
+		
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}

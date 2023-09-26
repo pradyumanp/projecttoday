@@ -1,0 +1,33 @@
+
+Go to File --> New--> select project --> select maven project
+
+A new maven project template will open
+
+Click on checkbox for - create simple project
+
+Un check default workspace
+
+from the frop down select  toption ending with eclipse workspace
+
+If you dont find it then select it by clicking on Browse button
+
+Click on checkbox og workspace
+
+Press Next button
+
+Enter a unique name for Group ID: selenium-Basics
+
+Artifact ID : selenium-Basics
+
+Always Artifact ID and group id will be same
+
+Click on finish 
+
+
+In the project Explorer, you will see your maven project
+
+Expand the project now
+
+You will see a file called --> pom.xml file
+
+Double click and open the file

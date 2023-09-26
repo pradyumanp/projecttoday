@@ -1,0 +1,22 @@
+Selenium --> Web application Functional testing tool
+
+Introduced year - 2004 -> JASON Huggins --> selenium1 --> 2008(selenium 2) --> 2016(Selenium 3)--> 2021(selenium 4)
+
+It is an Open source tool and free tool
+
+Selenium is to do functional testing/regression testing of web application
+
+Selenium + Applium --> used for Mobile application testing
+
+Selenium WebDriver is the component used for writing automation scripts
+Its does not have a front -end, so you have to write test scripts
+
+Script : what automation test steps shoudl selenium perform
+
+These scripts can be written in -> JAVA, pyhton, ruby, C#, php
+
+Selenium also has component IDE -> which has a UI
+
+Selenium supports testing on all the browser -> Cross browser testing: Chrome, Edge, ff, safari
+
+It is a stack of tools

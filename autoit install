@@ -1,0 +1,26 @@
+https://www.autoitscript.com/site/autoit/downloads/
+
+1. Download autoIT
+
+https://www.autoitscript.com/site/autoit/downloads/
+
+2. Then on the same page you will click on AutoIt Script Editor.
+
+We need to write the script
+
+On your windows machine search for editor-> scite
+
+It will open the editor:
+
+ControlFocus("Open","","Edit1")
+ControlSetText("Open","","Edit1","C:\Users\sonal\Documents\ATE-Phase1-SL\JDBCconnectivity.png")
+ControlClick("Open","","Button1")
+
+
+To find the element--> on windows machine --> search for tool AutoIT windows info --> open it
+
+drag the finder tool on the text box. itwill show details in box: class and instance
+
+so element location is : classinstance => Edit1
+
+Similarly for open button ==> it is Button1

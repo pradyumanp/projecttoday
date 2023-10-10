@@ -1,0 +1,27 @@
+
+Create the hubconfig.toml file
+
+Add below data:
+
+[server]
+port = 4449
+
+[sessionqueue]
+session-request-timeout = 500
+
+Save the file as a .toml file
+
+Opn command prompt ,go to the directory where grid server jar file is:
+
+java -jar selenium-server-4.13.0.jar hub --config C:\mygriddemo\hubconfig.toml
+
+
+Create a nodeconfig.toml file:
+
+[node]
+drivers = ["chrome", "firefox"]
+max-sessions = 3
+
+Opn command prompt ,go to the directory where grid server jar file is:
+
+java -jar selenium-server-4.13.0.jar node --config C:\mygriddemo\

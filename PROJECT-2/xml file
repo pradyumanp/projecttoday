@@ -1,0 +1,9 @@
+<suite name="test">
+<test name="TestHomePage">
+<classes>
+<class name="com.redbus.testpages.HomePageTest"></class>
+<class name="com.redbus.base.BaseTest"></class>
+
+</classes>
+</test>
+</suite>

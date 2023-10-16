@@ -1,0 +1,32 @@
+
+
+@ExtendWith(RunOnDayCondition.class)
+public @interface RunOnDay {
+  DayOfWeek[] value();
+}
+
+final class RunOnDayCondition implements ExecutionCondition {
+
+  private static final ConditionEvaluationResult DEFAULT = disabled(
+      RunOnDay.class + " is not present"
+  );
+
+  @Override
+  public ConditionEvaluationResult evaluateExecutionCondition(final ExtensionContext context) {
+    return context.getElement()
+        .flatMap(annotatedElement -> findAnnotation(annotatedElement, RunOnDay.class))
+        .map(RunOnDay::value)
+        .map(RunOnDayCondition::evaluateIfRunningOnDay)
+        .orElse(DEFAULT);
+  }
+
+  private static ConditionEvaluationResult evaluateIfRunningOnDay(final DayOfWeek[] days) {
+    // TODO: How would you inject a test clock?
+    final DayOfWeek currentDay = LocalDate.now().getDayOfWeek();
+    final boolean runningInday = Stream.of(days).anyMatch(currentDay::equals);
+
+    if (runningInday) {
+      return enabled("Current day is " + currentDay + ", in the specified days of " + Arrays.toString(days));
+    } else {
+      return disabled("Current day is " + currentDay + ", not in the specified days of " + Arrays.toString(days));
+    }

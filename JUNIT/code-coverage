@@ -1,0 +1,23 @@
+Download the code coverage plugin in Jenkins
+
+Go to   Dashboard> Manage Jenkins >Plugins > Available Plugins > search for JACOCo
+
+
+
+Click on Install button
+
+
+
+Now go and create a Freestyle job
+
+
+
+
+
+In port build actions > Select Record JACOCO coverage reports
+
+
+
+
+
+Execute the job

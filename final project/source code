@@ -1,0 +1,279 @@
+---------------------------------------------------------------
+Link for GitHub
+https://github.com/pradyumanp/java-fsd
+---------------------------------------------------------------
+
+
+
+SourceCode:
+Package:base
+BaseTeat.java
+package base;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.cucumber.java.AfterAll;
+public class BaseTest {
+public static WebDriver driver=new ChromeDriver();
+
+
+
+@AfterAll
+public static void Close_Browser() throws InterruptedException {
+System.out.println("Browser closed");
+driver.close();
+}
+
+
+}
+
+Package:features
+StarHealth.feature
+#Author: your.email@your.domain.com
+#Keywords Summary :
+#<URL>, <FullName>, <PhNo>, <PIN>, and <OptionPlan>
+
+
+Feature: Test the starHealth page on Chrome Browser
+
+
+Scenario Outline: Validate the Star Health Buy Now flow 
+
+
+Given User launches the Star Health application with "<URL>" 
+Then User waits for the Welcome to Star Health pop-up and closes it 
+Then User validates the Star Health home page title using a JUnit assertion 
+When User clicks on the Buy Now button 
+Then User types Name as "<FullName>" 
+Then User types Phone as "<PhNo>" 
+Then User types the PIN as "<PIN>" 
+Then User clicks on I need health insurance from the drop-down menu 
+When User selects the option "<optionPlan>" 
+Then User sees the Plan for My Family page 
+When User validates that the mobile number is the same as the previously entered number using a JUnit assertion 
+Then User clicks on the Star Health logo 
+Then The Application should redirect to the home page 
+When User closes the child tab 
+Then User navigates back to the parent tab
+
+
+Examples: 
+| URL | FullName | PhNo | PIN | optionPlan |
+|https://www.starhealth.in/|Swetha Andrews|6384369670|629160|My Family|
+Package:pages
+BuyNowPage.java
+package pages;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+
+public class BuyNowPage {
+
+
+@FindBy(xpath = "//input[@id='name']")
+public static WebElement name;
+
+
+@FindBy(xpath = "//input[@id='contact_no']")
+public static WebElement contactNo;
+
+
+@FindBy(xpath = "//input[@id='pinCode']")
+public static WebElement pinCode;
+
+
+@FindBy(xpath = "//div[@id='grouped-select']")
+public static WebElement dropDown;
+
+
+@FindBy(xpath = "//input[@id='contact_no']")
+public static WebElement contactNumberVeriry;
+
+
+@FindBy(xpath = "//img[@class='jss341']")
+public static WebElement logo;
+
+
+public BuyNowPage(WebDriver driver) {
+
+
+PageFactory.initElements(driver, this);
+// driver can now work with your elements and methods of this class
+}
+
+public void give_name(String fullname) throws InterruptedException {
+Thread.sleep(2000);
+name.sendKeys(fullname);
+}
+
+
+public void give_phno(String phno) throws InterruptedException {
+Thread.sleep(2000);
+contactNo.sendKeys(phno);
+}
+
+
+public void give_pin(String pin) throws InterruptedException {
+Thread.sleep(2000);
+pinCode.sendKeys(pin);
+}
+
+
+public void click_dropdown() throws InterruptedException {
+Thread.sleep(2000);
+dropDown.click();
+}
+
+
+public String ContactNo_verify() throws InterruptedException {
+Thread.sleep(2000);
+String C_no = contactNumberVeriry.getAttribute("value");
+return C_no;
+}
+
+
+public void click_logo() throws InterruptedException {
+Thread.sleep(2000);
+logo.click();
+}
+
+
+}
+
+HomePage.java
+package pages;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import base.BaseTest;
+public class HomePage {
+@FindBy(xpath = "//span[text()='Buy Now']")
+public static WebElement buyNow;
+
+
+public HomePage(WebDriver driver) {
+
+
+PageFactory.initElements(driver, this);
+// driver can now work with your elements and methods of this class
+}
+
+
+public String get_homepage_title() throws InterruptedException {
+String title = BaseTest.driver.getTitle();
+return title;
+}
+
+
+public void click_On_BuyNow() throws InterruptedException {
+Thread.sleep(2000);
+buyNow.click();
+}
+
+
+
+
+}
+
+Package:runner
+StarHealthTestRunner.java
+package runner;
+import org.junit.runner.RunWith;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features="C:\\Users\\Swetha Andrews\\eclipse-workspace\\StarHealth-Cucumber\\src\\test\\java\\features\\StarHealth.feature",
+glue= {"steps"},
+plugin= {"html:target/Cucumberreport.html",
+ "pretty",
+"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+"timeline:test-output-thread/"		
+})
+public class StarHealthTestRunner {
+
+
+}
+
+Extent.properties
+extent.reporter.spark.start=true
+extent.reporter.spark.out=test-output/SparkReport/Spark.html
+extent.reporter.spark.config=src/test/resources/extent-config.xml
+
+
+extent.reporter.spark.out=test-output/SparkReport/
+
+
+screenshot.dir=test-output/
+screenshot.rel.path=../
+extent.reporter.pdf.start=true
+extent.reporter.pdf.out=test output/PdfReport/ExtentPdf.pdf
+#basefolder.name=reports
+#basefolder.datetimepattern=d-MMM-YY HH-mm-ss
+extent.reporter.spark.vieworder=dashboard,test,category,exception,author,device,log
+systeminfo.os=Windows
+systeminfo.user=Swetha
+systeminfo.build=1.1
+systeminfo.AppName=AutomationPractice
+
+Extent-config.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+<configuration>
+<!-- report theme -->
+
+
+<!-- standard, dark -->
+
+
+<theme>dark</theme>
+<!-- document encoding -->
+
+
+<!-- defaults to UTF-8 -->
+
+
+<encoding>UTF-8</encoding>
+<!-- protocol for script and stylesheets -->
+
+
+<!-- defaults to https -->
+
+
+<protocol>http</protocol>
+<!-- title of the document -->
+<documentTitle>Extent</documentTitle>
+<!-- report name - displayed at top-nav -->
+
+
+<reportName>Grasshopper Report</reportName>
+<!-- location of charts in the test view -->
+
+
+<!-- top, bottom -->
+
+
+<testViewChartLocation>bottom</testViewChartLocation>
+<!-- custom javascript -->
+
+
+<scripts>
+
+
+<![CDATA[
+$(document).ready(function() {
+});
+]]>
+</scripts>
+<!-- custom styles -->
+<styles>
+<![CDATA[
+]]>
+</styles>
+</configuration>
+</extentreports>
+
+

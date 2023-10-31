@@ -1,0 +1,33 @@
+#1) Regular Expression Extractor
+A regular expression extractor is used to get the information from the response of the server. It uses Perl-type Regular expression for extracting the information i.e. values. This processor will run after each sampler request is executed.
+
+How it works:
+
+Sampler Request->Apply Regular expression extractor-> Information/Value extraction-> Template String generation ->Storage of extracted value/Information in a specific variable name
+
+Create a Test Plan
+Add Thread Group
+Add Sampler “HTTP Request”
+Add the Processor “Regular expression extractor”
+Apply To: “Apply to” has 4 options.
+
+Main Sample and Sub Samples: It applies to both main samples and Sub Samples.
+Main Samples only: It gets applied to the main samples only.
+Sub Samples only: It gets applied to Sub Samples only.
+JMeter Variable: The extraction is applied to the named variable only.
+Field To Check: Field to check has a number of options. All the field names are self-explanatory as their name suggests.
+
+The body represents the body of the response i.e. content excluding headers.
+Body (Unescaped): The body of the response which has all the HTML escape codes replaced.
+Body as a Document – From the number of documents data is extracted.
+The name of the created variable will have the extracted text saved.
+The regular expression will match the pattern against the text to be extracted.’.+?’ represents a single instance of the text placed by the tags.
+Template: Template is used to create a String for the extracted values match.
+$1$ represents group 1
+Match No (0 for Random): To get which one to select as a variable.
+
+0 indicates a random value from the found results.
+Nth number indicates the nth number from the found results.
+Any negative number – indicates that all the data should be extracted.
+Default Value: The reference value is set to the default value in case the Regular expression does not match.
+

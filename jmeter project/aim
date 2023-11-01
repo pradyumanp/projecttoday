@@ -1,0 +1,19 @@
+Jmeter project aim →
+
+In this project firstly we go to our chrome and open our
+blaze meter and strat recording now after starting the 
+recording we go to simplilearn official website and go to
+homepage with the help of blaze meter we record this homepage
+and after that we click on the login page with the help of blaze meter
+we record it after that we click on sune up page and record the script
+with the help of blaze meter. After recording all the scripts now we 
+stop the recording and go to blaze meter and save this recording in
+our local machine. After that we go to the jmeter and open this script
+with the help of jmeter. Now after opening our all the scripts come. 
+Then we create a thread group and create different different simple 
+controller and put every single script inside a simple controller
+and then we add some response assertion also inside the simple controller 
+and we add some wait time also like add timer that's duration assertion. 
+After that we add a lister as view result tree and add one lister as aggression 
+report and save this and run out results tree and we get our output which i upload in screenshot folder and source code folder. 
+That's it for this project we get our output successfully.

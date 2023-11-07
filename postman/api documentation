@@ -1,0 +1,18 @@
+API documentation is essentially an instruction manual that explains how to use an API and its services. This manual might contain tutorials, code examples, screenshots, and anything else that helps users better understand how to work with the API.
+
+You can also think of documentation as an agreement between two parties. It outlines how the second party and its software will respond when the first party sends a certain type of request.
+
+These types of requests — known as API calls — are described in the documentation so developers know what they can ask the API to do and how.
+
+Good API documentation describes its endpoints, explains why you’d use them, and offers very specific examples of how you’d use them — all in a way that’s accessible to both beginners and more advanced users. Bad API documentation is overly technical and text-based, and therefore not accessible to all users.
+
+Below we’ll walk through how to write good API documentation in seven steps.
+
+How to Write API Documentation
+Understand the API’s users.
+Map out the user journey.
+Start with the fundamentals.
+Add code examples.
+List your status codes and error messages.
+Write and design for humans.
+Keep your documentation up-to-date.

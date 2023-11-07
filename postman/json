@@ -1,0 +1,6 @@
+{
+    "error": {
+        "name": "SyntaxError",
+        "message": "Unexpected end of JSON input"
+    }
+}

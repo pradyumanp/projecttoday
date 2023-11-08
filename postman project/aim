@@ -1,0 +1,3 @@
+-----
+first we go to https://openweathermap.org/api website and create an account and took api keys from there and 
+after that we open our postman and create one blank collection and then we add request to the collection and give the url of the weather app and define our base_url then we add initial and current value now we create an excel sheet and took some data from there now we just run our collection and we get our desired output one more time we took our file from dekstop and run our collection now we also get our output. I have share output details in screenshots. That’s all about thism project.

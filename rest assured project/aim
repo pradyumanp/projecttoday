@@ -1,0 +1,116 @@
+---------------------------------------------------------------
+Link for GitHub
+https://github.com/pradyumanp/java-fsd
+---------------------------------------------------------------
+
+
+
+
+Handling the Test Data and Executing It in Multiple Environments for User Module of an Application
+
+Project Aims: 
+
+Rest Assured:
+Rest Assured enables  to test REST APIs using java libraries and integrates well with Maven. It has very efficient matching techniques, so asserting your expected results is also pretty straight forward. Rest Assured has methods to fetch data from almost every part of the request and response no matter how complex the JSON structures are.
+
+TestNg:
+TestNG ("Testing, the Next Generation") is a Java unit testing framework that aims to overcome many limitations of JUnit. TestNG introduces some new functionalities that make it more powerful and easier to use.
+
+JAVA:
+Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run anywhere (WORA),meaning that compiled Java code can run on all platforms that support Java without the need to recompile.
+I used the following:
+●	Eclipse  IDE
+●	Java 1.8
+●	TestNG
+●	RestAssured
+●	Maven
+ 
+I Used these URL Endpoint:
+Base URL: https://reqres.in/api
+Register User URL: https://reqres.in/api/register
+Get Users URL: https://reqres.in/api/users
+Login User URL: https://reqres.in/api/login
+Logging Test URL: https://reqres.in/api/unknown
+
+
+
+
+
+
+
+
+
+
+
+
+
+STEPS
+Step-1: First I open Eclipse IDE
+Step-2: Then I create a Maven Project
+ 
+
+ 
+ 
+Step-3: Then I add dependencies in pom.xml file
+Step-4: Then I create a package in src/test/java
+ 
+Step-5: Then I create a new class as Script001RegisterUser.java
+ 
+
+Step-6: Then I create another class named as Script002GetUsers.java
+ 
+Step-7:Then I create another class named as Script003LoginUsers.java
+ 
+Step-8: Then I create a new class Script004LoggingRequest.java
+ 
+Step-9: Then I Create a new xml file as testNg.xml in src/test/resources folder
+
+ 
+
+
+
+
+
+
+
+Step-10: Then I run it separately and via testNG.xml also
+
+
+
+
+
+
+
+Script001RegisterUser.java 
+ 
+
+Script002GetUsers.java
+ 
+
+
+
+
+Script003LoginUsers.java
+ 
+
+
+
+Script004LoggingRequest.java
+ 
+
+ 
+
+
+Run From testNG.xml
+ 
+
+
+
+
+
+Step-11: Then I create a new Github Repository and push it
+ 
+ 
+ 
+ 
+ 

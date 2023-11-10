@@ -1,0 +1,287 @@
+---------------------------------------------------------------
+Link for GitHub
+https://github.com/pradyumanp/java-fsd
+---------------------------------------------------------------
+
+
+Source Code
+
+Script001RegisterUser.java
+package in.reqres.test;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class Script001RegisterUser {
+
+	@Test
+	public void registerUser() {
+
+		/*
+		 * "email": "eve.holt@reqres.in", "password": "pistol"
+		 */
+
+		JSONObject body = new JSONObject();
+		
+		body.put("email", "eve.holt@reqres.in");
+		body.put("password", "pistol");
+		
+		String jsonBody=body.toString();
+			
+		//https://reqres.in/api/register
+		Response response = RestAssured
+				.given()
+				.baseUri("https://reqres.in")
+				.basePath("/api/register")
+				.contentType("application/json")
+				.body(jsonBody)
+				.when()
+				.post()
+				.then()
+				.statusCode(200)
+				.extract()
+				.response();
+	
+		System.out.println(response.getBody().asPrettyString());
+		System.out.println("Status Code " + response.getStatusCode());
+		System.out.println("Response Time: "+response.getTime());
+		System.out.println("Content Type: "+response.getHeader("Content-Type"));
+		int expectStatusCode = 200;
+		int ActualStatusCode = response.getStatusCode();
+		Assert.assertEquals(expectStatusCode, ActualStatusCode);
+	}
+}
+
+
+Script002GetUsers.java
+package in.reqres.test;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class Script002GetUsers {
+	
+	@Test
+	public void getUsers() {
+
+		
+		//https://reqres.in/api/users
+		Response response = RestAssured
+				.given()
+				.baseUri("https://reqres.in")
+				.basePath("/api/users")
+				.contentType("application/json")
+				.when()
+				.get()
+				.then()
+				.statusCode(200)
+				.extract()
+				.response();
+	
+		System.out.println(response.getBody().asPrettyString());
+		System.out.println("Status Code " + response.getStatusCode());
+		System.out.println("Response Time: "+response.getTime());
+		System.out.println("Content Type: "+response.getHeader("Content-Type"));
+		int expectStatusCode = 200;
+		int ActualStatusCode = response.getStatusCode();
+		Assert.assertEquals(expectStatusCode, ActualStatusCode);
+	}
+}
+
+
+Script003LoginUsers.java
+package in.reqres.test;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class Script003LoginUsers {
+
+	
+	
+	
+	@Test
+	public void Login_User() {
+
+		/*
+		 * {
+	    "email": "eve.holt@reqres.in",
+	    "password": "cityslicka"
+			}
+		 * */
+
+		JSONObject body = new JSONObject();
+		
+		body.put("email", "eve.holt@reqres.in");
+		body.put("password", "cityslicka");
+		
+		String jsonBody=body.toString();
+			
+		//https://reqres.in/api/register
+		Response response = RestAssured
+				.given()
+				.baseUri("https://reqres.in")
+				.basePath("/api/login")
+				.contentType("application/json")
+				.body(jsonBody)
+				.when()
+				.post()
+				.then()
+				.statusCode(200)
+				.extract()
+				.response();
+	
+		System.out.println(response.getBody().asPrettyString());
+		System.out.println("Status Code " + response.getStatusCode());
+		System.out.println("Response Time: "+response.getTime());
+		System.out.println("Content Type: "+response.getHeader("Content-Type"));
+		int expectStatusCode = 200;
+		int ActualStatusCode = response.getStatusCode();
+		Assert.assertEquals(expectStatusCode, ActualStatusCode);
+	}
+}
+
+
+
+Script004LoggingRequest.java
+package in.reqres.test;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class Script004LoggingRequest {
+	
+	@Test
+	public void Logging_Request() {
+
+		
+		//https://reqres.in/api/unknown
+		Response response = RestAssured
+				.given()
+				.baseUri("https://reqres.in")
+				.basePath("/api/unknown")
+				.contentType("application/json")
+				.when()
+				.get()
+				.then()
+				.statusCode(200)
+				.log().all()
+				.extract()
+				.response();
+	
+		System.out.println(response.getBody().asPrettyString());
+		System.out.println("Status Code " + response.getStatusCode());
+		System.out.println("Response Time: "+response.getTime());
+		System.out.println("Content Type: "+response.getHeader("Content-Type"));
+		int expectStatusCode = 200;
+		int ActualStatusCode = response.getStatusCode();
+		Assert.assertEquals(expectStatusCode, ActualStatusCode);
+	}
+}
+
+testNg.xml
+<suite name="suite001">
+<test name="test001">
+<classes>
+<class name="in.reqres.test.Script001RegisterUser"></class>
+<class name="in.reqres.test.Script002GetUsers"></class>
+<class name="in.reqres.test.Script003LoginUsers"></class>
+<class name="in.reqres.test.Script004LoggingRequest"></class>
+</classes>
+</test>
+</suite>
+
+
+
+
+
+
+
+
+
+
+Pom.xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>RestAssured-LessonEnd-Project</groupId>
+  <artifactId>RestAssured-LessonEnd-Project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.3.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured-common -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured-common</artifactId>
+    <version>5.3.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured-all -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured-all</artifactId>
+    <version>5.3.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20180813</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+<dependency>
+    <groupId>org.hamcrest</groupId>
+    <artifactId>hamcrest</artifactId>
+    <version>2.2</version>
+    <scope>test</scope>
+  </dependency>
+  
+  <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>json-path</artifactId>
+    <version>5.3.0</version>
+    <scope>test</scope>
+</dependency>
+
+  <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.15.2</version>
+</dependency>
+  
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.7.1</version>
+    <scope>test</scope>
+</dependency>
+  </dependencies>
+</project>

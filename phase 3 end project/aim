@@ -1,0 +1,17 @@
+---------------------------------------------------------------
+Link for GitHub
+https://github.com/pradyumanp/java-fsd
+---------------------------------------------------------------
+In this project first we crete an package and class then we write our test cases and priority as 1 then write
+
+All the rest assured code and apis and we get our output which I mentioned in scrennshot
+section then in assignment 2 we we create another class and we wrote our code which is 
+rest assured like we match duck with the help of rest assured code and run our code we 
+get output successfully we and we alos got our response. And if we discuss about our
+assignment no 3 and 4 we we again create an class and write our rest assured code in
+assignment no 5 we create different class and write code for it. After that our
+postman section come into the picture  in this we create and collection and we 
+create one post request inside it and give url after that we give put, delete,
+get all methods and run our colllection after that jmeter comes into the picture
+where we craete an test and an threa group inside this we create an tree for getting 
+output and run our tree we get output successfully that’s all about this project.
